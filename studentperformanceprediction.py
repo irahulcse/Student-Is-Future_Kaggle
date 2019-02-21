@@ -65,6 +65,7 @@ df.writepass.value_counts()
 
 sns.countplot(x='parental level of education', data = df, hue='writepass', palette='bright')
 _ = plt.setp(p.get_xticklabels(), rotation=90) 
+plt.savefig('countplot_parentaleducation')
 #%% [markdown]
 # # find overall pass or fail(it is very important as compared to other plots)
 df['overallpass']=df.apply(lambda x:'F' if x['mathpass']=='F' or x['readpass']=='F' or x['writepass']=='F' else 'P',axis=1)
@@ -79,6 +80,7 @@ df['percentage'] = df['Total_Marks']/3
 # # The countplot which is on lunch vs parental level of education
 p=sns.countplot(x='lunch',data=df,hue='parental level of education',palette='bright')
 _= plt.setp(p.get_xticklabels(), rotation=90) 
+plt.savefig('countplot_lunch')
 #%% [markdown]
 # ## Let us assign the grades
 # ## Grading
@@ -111,10 +113,13 @@ df.grade.value_counts()
 #%% [markdown]
 # # the countplot grade vs lunch
 sns.countplot(x='grade',data=df,hue='lunch')
+plt.savefig('countplot_grade')
 
 sns.countplot(x='grade',data=df,order=['A','B','C','D','E','F'],palette='muted')
+plt.savefig('countplot_grade')
 plt.show()
 
 p=sns.countplot(x='parental level of education',data=df,hue='grade',palette='bright')
 _= plt.setp(p.get_xticklabels(), rotation=90) 
+plt.savefig('countplot_forparent_education')
 # ## Basically we write it to make the xlabels vertical so that it is easily visable to us
